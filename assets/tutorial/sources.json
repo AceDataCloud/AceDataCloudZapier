@@ -1,0 +1,27 @@
+[
+  {
+    "path": "get-api-key-en.png",
+    "source_url": "https://raw.githubusercontent.com/AceDataCloud/SunoDify/8d3d03570e73324220f111f7fe343da0792a8071/_assets/tutorial/get-api-key-en.png",
+    "checked_at": "2026-10-18",
+    "type": "existing Ace platform tutorial screenshot",
+    "original_date": "unknown",
+    "limits": "Not a Zapier screenshot; API tokens redacted."
+  },
+  {
+    "path": "create-api-key-en.png",
+    "source_url": "https://raw.githubusercontent.com/AceDataCloud/SunoDify/8d3d03570e73324220f111f7fe343da0792a8071/_assets/tutorial/create-api-key-en.png",
+    "checked_at": "2026-10-18",
+    "type": "existing Ace platform tutorial screenshot",
+    "original_date": "unknown",
+    "limits": "Not a Zapier screenshot; API tokens redacted."
+  },
+  {
+    "path": "zapier-connection-preview.png",
+    "date": "2026-10-17 edit; 2026-10-18 reused",
+    "type": "official_screenshot_edit",
+    "source_url": "https://cdn.zapier.com/storage/photos/19467b7d1852276b766b373373fd069c.png",
+    "official_page_url": "https://docs.zapier.com/integrations/build/apikeyauth",
+    "original_date": "unknown",
+    "limitations": "Edited preview, not a live Ace connection, uploaded version, completed Zap or public listing. Field order/layout may differ from the current Zapier editor. YOUR_API_KEY is a placeholder; no credential is shown."
+  }
+]
