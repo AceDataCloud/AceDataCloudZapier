@@ -1,0 +1,45 @@
+{
+  "name": "acedatacloud-zapier",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Ace Data Cloud is an AI API platform for Suno, Seedance, HappyHorse, GPT Image, Nano Banana and chat workflows.",
+  "homepage": "https://acedata.cloud",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test",
+    "validate": "zapier-platform validate --without-style",
+    "validate:publish": "zapier-platform validate",
+    "build": "zapier-platform build"
+  },
+  "dependencies": {
+    "zapier-platform-core": "19.2.0"
+  },
+  "devDependencies": {
+    "nock": "14.0.7",
+    "zapier-platform-cli": "19.2.0"
+  },
+  "overrides": {
+    "form-data": "4.0.6"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AceDataCloud/AceDataCloudZapier.git"
+  },
+  "keywords": [
+    "zapier",
+    "acedatacloud",
+    "suno",
+    "seedance",
+    "happyhorse",
+    "gpt-image",
+    "nano-banana",
+    "music",
+    "video",
+    "image",
+    "chat"
+  ],
+  "engines": {
+    "node": ">=22 <23"
+  }
+}
