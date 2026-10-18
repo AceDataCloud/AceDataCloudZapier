@@ -2,7 +2,7 @@
   "name": "acedatacloud-zapier",
   "version": "0.0.1",
   "private": true,
-  "description": "Ace Data Cloud is an AI API platform for Suno music and chat workflows.",
+  "description": "Ace Data Cloud is an AI API platform for Suno, Seedance, HappyHorse, GPT Image, Nano Banana and chat workflows.",
   "homepage": "https://acedata.cloud",
   "main": "index.js",
   "scripts": {
@@ -30,7 +30,13 @@
     "zapier",
     "acedatacloud",
     "suno",
+    "seedance",
+    "happyhorse",
+    "gpt-image",
+    "nano-banana",
     "music",
+    "video",
+    "image",
     "chat"
   ],
   "engines": {

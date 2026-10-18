@@ -1,4 +1,4 @@
-# Suno music and chat for Zapier — by Ace Data Cloud
+# AI media and chat for Zapier — by Ace Data Cloud
 
 Generate Suno music from a Zap, wait for the original task, and pass completed audio URLs to later steps. This is an **Ace Data Cloud integration** using your Ace API token. It is not an official Suno application or an endorsement by Suno or Zapier.
 
@@ -14,7 +14,16 @@ Generate Suno music from a Zap, wait for the original task, and pass completed a
 | **Retrieve Suno Music Task** | Original Ace task ID | `pending`, `failed`, or `succeeded`; final audio only on success; never submits generation |
 | **Create Chat Response** | Chat model, prompt, optional system instructions / token limit | Text and response/usage mapping fields |
 
-Suno is in the action name and this dedicated guide so users can recognize the service. Public directory search for `suno` is an acceptance check, not an assumed ranking. Seedance, HappyHorse, GPT Image and Nano Banana actions are not included in this version.
+Service names appear in native actions and dedicated guides; public keyword discovery is an acceptance check, not an assumed ranking.
+
+| Additional native action and same-ID recovery | Current mode / guide |
+| --- | --- |
+| **Generate Seedance Video** / **Retrieve Seedance Video Task** | [Text and optional first-frame video](readme/services/seedance.md) |
+| **Generate HappyHorse Video** / **Retrieve HappyHorse Video Task** | [Text-to-video](readme/services/happyhorse.md) |
+| **Generate GPT Image** / **Retrieve GPT Image Task** | [Image generation; no editing](readme/services/gpt-image.md) |
+| **Generate or Edit Nano Banana Image** / **Retrieve Nano Banana Image Task** | [Generate/edit with reference images](readme/services/nano-banana.md) |
+
+All actions are in the same source-only app. Private upload, actual Zap results and public discovery are still pending.
 
 ## 2. Register / sign in and get the right API token
 
@@ -78,7 +87,7 @@ Before replaying an uncertain POST, check [Ace usage](https://platform.acedata.c
 | Ace app is absent | Source code does not grant account access. Ask the existing app administrator for the actual private version; no public listing is claimed. |
 | Connection fails | Raw token, expiry, application access, usage restrictions and balance; reconnect after rotating it. |
 | Connection works but Suno fails | Allow `/suno/audios` and `/suno/tasks`; the model-list test does not prove those permissions. |
-| Rate limit | Let Zapier's delayed retry complete. The app itself does not retry the paid submission. Check the original task before manual replay. |
+| Rate limit | Media submission does not opt into throttle replay; check the original task before manual replay. Existing task queries may be delayed and retried. |
 | Callback mismatch / pending | Do not rerun generation. Retrieve the original task ID. A mismatch cannot resume another task. |
 | No final audio | The task may still be running, failed or returned no valid completed audio. Retrieve the same ID and review usage. |
 | Blocked content / insufficient balance | Respect the returned category, review content or application balance; no model fallback is inserted. |

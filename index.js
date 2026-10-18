@@ -1,6 +1,8 @@
 const chat = require('./send-chat');
 const suno = require('./creates/generate-suno-music');
 const retrieveSuno = require('./creates/retrieve-suno-task');
+const mediaActions = ['seedance', 'happyhorse', 'gpt-image', 'nano-banana']
+  .flatMap((name) => require(`./creates/${name}`).actions);
 
 const testAuthentication = async (z, bundle) => {
   const response = await z.request({
@@ -57,6 +59,8 @@ module.exports = {
   afterResponse: [],
   triggers: {},
   searches: {},
-  creates: { [chat.key]: chat, [suno.key]: suno, [retrieveSuno.key]: retrieveSuno },
+  creates: { [chat.key]: chat, [suno.key]: suno, [retrieveSuno.key]: retrieveSuno,
+    ...Object.fromEntries(mediaActions.map((action) => [action.key, action])),
+  },
   resources: {},
 };

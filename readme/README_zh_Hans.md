@@ -8,7 +8,7 @@
 
 当前为源码预览 `0.0.1`，**没有已验证的 Zapier 私有上传、公开上架、成功 Zap 或账单**。[Zapier 官方应用目录](https://zapier.com/apps)是后续公开安装渠道，源码仓不是安装入口。管理员需先在已有合法账号中上传并提供准确的私有版本；公开审核后才补真实安装链接。
 
-应用内动作：**Generate Suno Music**（生成音乐并等待完成）、**Retrieve Suno Music Task**（只查原任务）、**Create Chat Response**（聊天）。本版不含 Seedance、HappyHorse、GPT Image 或 Nano Banana 动作。Suno 在动作名与教程中明确显示；公开目录搜 `suno` 能否找到该应用，必须上架后验证，不承诺排名。
+应用内动作：**Generate Suno Music**（生成音乐并等待完成）、**Retrieve Suno Music Task**（只查原任务）、**Create Chat Response**（聊天）。新增原生动作：[Seedance视频](services/seedance.zh-CN.md)、[HappyHorse文生视频](services/happyhorse.zh-CN.md)、[GPT Image生成](services/gpt-image.zh-CN.md)、[Nano Banana生成/编辑](services/nano-banana.zh-CN.md)，每项都有原ID查询恢复动作。所有源码仍待私有上传/公开验收。Suno 在动作名与教程中明确显示；公开目录搜 `suno` 能否找到该应用，必须上架后验证，不承诺排名。
 
 ## 2. 注册、登录并获取 Token
 
@@ -63,7 +63,7 @@
 
 ## 常见问题
 
-找不到应用：源码不等于账号安装，需既有管理员提供真实私有版本；现在不宣称公开上架。连接失败：检查完整 Token、过期、权限、限制和余额。连接成功但生成失败：检查 Suno 生成与查询 API 都允许。限流：等 Zapier 延迟重试，手动重试前查原任务。内容拦截：按错误类别处理，不换模型绕过。无最终音频：只查原 ID，确认终态。
+找不到应用：源码不等于账号安装，需既有管理员提供真实私有版本；现在不宣称公开上架。连接失败：检查完整 Token、过期、权限、限制和余额。连接成功但生成失败：检查 Suno 生成与查询 API 都允许。媒体生成限流不请求自动重放收费动作，手动重试前查原任务；查询动作可以延后重试。内容拦截：按错误类别处理，不换模型绕过。无最终音频：只查原 ID，确认终态。
 
 [联系支持](https://docs.acedata.cloud/en/resources/support)时提供任务/trace ID、模型和大致时间，不发送 Key 或私人提示词。[隐私政策](https://docs.acedata.cloud/en/resources/privacy) · [条款](https://docs.acedata.cloud/en/resources/terms)。
 

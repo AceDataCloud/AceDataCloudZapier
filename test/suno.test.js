@@ -154,6 +154,17 @@ test('Suno rate limits, auth, balance and moderation use safe Zapier errors with
   }
   nock('https://api.acedata.cloud').post('/suno/audios').reply(429, {}, { 'Retry-After': '9' });
   await assert.rejects(tester(app.creates.generate_suno_music.operation.perform, bundle), (error) => {
-    assert.equal(error.name, 'ThrottledError'); assert.equal(JSON.parse(error.message).delay, 9); return true;
+    assert.equal(error.name, 'AppError'); assert.equal(JSON.parse(error.message).code, 'GenerationRateLimited'); return true;
+  });
+});
+
+
+test('Suno recovery query can be throttle-retried without resubmitting generation', async () => {
+  nock('https://api.acedata.cloud').post('/suno/tasks', { action: 'retrieve', id })
+    .reply(429, {}, { 'Retry-After': '11' });
+  await assert.rejects(tester(app.creates.retrieve_suno_task.operation.perform, {
+    ...bundle, inputData: { task_id: id },
+  }), (error) => {
+    assert.equal(error.name, 'ThrottledError'); assert.equal(JSON.parse(error.message).delay, 11); return true;
   });
 });

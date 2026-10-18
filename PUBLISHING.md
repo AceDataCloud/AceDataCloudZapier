@@ -7,13 +7,13 @@ As of 2026-10-18, this integration is source-only. No integration ID, uploaded p
 | Field | Proposed value | Evidence still needed |
 | --- | --- | --- |
 | Name | Ace Data Cloud | Confirm branding in Developer Platform and rule out an existing app before registering. |
-| Description | Ace Data Cloud is an AI API platform for Suno music and chat workflows. | Read back after private push. |
+| Description | Ace Data Cloud is an AI API platform for Suno, Seedance, HappyHorse, GPT Image, Nano Banana and chat workflows. | Read back after private push. |
 | Marketing homepage | https://acedata.cloud | Confirm the listing uses the marketing site rather than the console/login page. |
 | Category | Artificial Intelligence → AI Models | Confirm the current choices in Developer Platform. |
 | Icon | [Transparent 512 px PNG](assets/acedatacloud-icon.png) | Upload and inspect rendering in Developer Platform. |
 | Privacy / terms / support | [Privacy](https://docs.acedata.cloud/en/resources/privacy), [terms](https://docs.acedata.cloud/en/resources/terms), [support](https://docs.acedata.cloud/en/resources/support) | Confirm current data handling and safe contact instructions. |
 | Help article | [English draft](HELP.md) | Publish from the owning documentation source, then record its actual public URL. |
-| Actions | Generate Suno Music; Retrieve Suno Music Task; Create Chat Response | Suno inspiration-mode generation, same-task retrieval and text chat only. No other media service is included. |
+| Actions | Five named media generation actions, their five original-task recovery actions, and Create Chat Response | Suno plus Seedance video, HappyHorse text video, GPT Image generation, Nano Banana generate/edit, each with same-ID recovery; and text chat. |
 
 All Zapier interface fields and error messages remain in English. The Chinese ecosystem report is a separate internal deliverable.
 
@@ -76,7 +76,7 @@ Acquisition links retain the approved `utm_source=opensource`, `utm_medium=refer
 - [ ] Test recovery using **Retrieve Suno Music Task** without creating a new generation; confirm pending media is withheld and failed status is explicit.
 - [ ] Match each paid submission to one terminal usage record. Polls/callbacks must not be counted as new generations; preserve trace and task correlation.
 - [ ] After official publication, test ordinary-user directory queries `suno`, `Suno by Ace Data Cloud`, `Ace Data Cloud` and exact action search. Record whether the app and action are actually discoverable; naming metadata is not a search result or ranking guarantee.
-- [ ] Do not advertise Seedance, HappyHorse, GPT Image or Nano Banana as implemented. Each needs its own action contract, native fields, task/terminal handling, docs and live acceptance.
+- [ ] Native source now includes Seedance, HappyHorse, GPT Image and Nano Banana generation/recovery pairs. Do not advertise cloud execution, public availability or unsupported modes; complete the separate per-service live acceptance below.
 
 The generated callback URL is private workflow metadata, not a user-configured webhook field. Do not publish it in screenshots. Callback payloads are used only to identify the original task; final results are re-read using the user's Ace API token.
 
@@ -107,3 +107,16 @@ Before another push or promotion, read the current version lifecycle state and u
 ## Official references
 
 Verified on 2026-10-12: [CLI and Node 22](https://docs.zapier.com/integrations/build-cli/overview), [publishing requirements](https://docs.zapier.com/integrations/publish/integration-publishing-requirements), [branding](https://docs.zapier.com/integrations/publish/branding-guidelines), [user help](https://docs.zapier.com/integrations/publish/user-help), [private/public types](https://docs.zapier.com/integrations/quickstart/private-vs-public-integrations), [public Beta review](https://docs.zapier.com/integrations/publish/public-integration), [version rules](https://docs.zapier.com/integrations/manage/versions), and [Partner Program](https://docs.zapier.com/integrations/publish/partner-program).
+
+
+## Additional media actions — source implemented, cloud acceptance pending
+
+- [ ] Seedance: exact model, 1–1000 character text, optional first-frame object URL, model-specific duration/resolution/audio. Excludes audio/video references, last-frame mixtures, editing and extension.
+- [ ] HappyHorse: only 1.0/1.1 t2v, action=generate, 3–15 seconds, exact 720P/1080P. Other modes are not exposed.
+- [ ] GPT Image: exact gpt-image model, generation only, n=1–10, documented 2/2.5 size/quality. Callback is always supplied so the original /openai/tasks row can be retrieved; reject another image service's task.
+- [ ] Nano Banana: explicit generate/edit, required HTTPS reference list for edit, count=1–4 and exact per-model 1K/2K/4K restriction. Actual successful image count determines billing.
+- [ ] Each service: capture native fields in the private Zap editor without pressing Test; then separately authorize and record paid editor/enabled-Zap acceptance, original task callback/resume, final media and exactly one terminal usage record per submission.
+- [ ] Each same-ID recovery action: pending or failed has no final URLs. Do not replay generation to recover a task. No raw request, callback, credential/user metadata or upstream error appears in outputs.
+- [ ] Public discovery: verify each service name and exact action term after approval, with ordinary-user search/install evidence, not only package metadata.
+
+All media generation 429 errors are normal `GenerationRateLimited` errors rather than a `ThrottledError` that asks Zapier to replay the paid submission. Rate-limited existing-task reads may use a delayed query retry. Explicit Zapier Autoreplay or a user's manual replay can still resubmit a request, so inspect the original task and usage first; no cross-request idempotency is promised.
