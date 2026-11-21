@@ -1,4 +1,5 @@
 const chat = require('./send-chat');
+const aceMusic = require('./creates/acemusic');
 const suno = require('./creates/generate-suno-music');
 const retrieveSuno = require('./creates/retrieve-suno-task');
 const mediaActions = ['seedance', 'happyhorse', 'gpt-image', 'nano-banana']
@@ -60,7 +61,7 @@ module.exports = {
   triggers: {},
   searches: {},
   creates: { [chat.key]: chat, [suno.key]: suno, [retrieveSuno.key]: retrieveSuno,
-    ...Object.fromEntries(mediaActions.map((action) => [action.key, action])),
+    ...Object.fromEntries([...mediaActions, ...aceMusic].map((action) => [action.key, action])),
   },
   resources: {},
 };

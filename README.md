@@ -18,6 +18,7 @@ Service names appear in native actions and dedicated guides; public keyword disc
 
 | Additional native action and same-ID recovery | Current mode / guide |
 | --- | --- |
+| **ACE Music** | [Generate, import, cover, blend and retrieve](readme/services/acemusic.md) |
 | **Generate Seedance Video** / **Retrieve Seedance Video Task** | [Text and optional first-frame video](readme/services/seedance.md) |
 | **Generate HappyHorse Video** / **Retrieve HappyHorse Video Task** | [Text-to-video](readme/services/happyhorse.md) |
 | **Generate GPT Image** / **Retrieve GPT Image Task** | [Image generation; no editing](readme/services/gpt-image.md) |
