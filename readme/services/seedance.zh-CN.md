@@ -12,7 +12,7 @@
 
 ## 2. 获取正确的Token
 
-1. 打开[Applications](https://platform.acedata.cloud/console/applications?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=seedance_zapier_guide_zh_api_key)，注册或登录。
+1. 打开[Applications](https://platform.acedata.cloud/console/applications?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen)，注册或登录。
 2. 找到 **General application**，没有时选 **Initialize General Application**。通用Key依账号服务权限，专用应用可能限服务。
 3. 复制已有Token，或 **Manage Keys → Create**，取名 `Zapier Seedance`。复用截图中的 Dify tutorial 只是历史示例。
 4. 检查过期、用量和 **Allowed APIs**，同时允许 `/seedance/videos` 与 `/seedance/tasks`。模型列表连接成功不代表拥有生成/查询权限。
@@ -21,7 +21,7 @@
 
 ![创建专用Key真图](../../assets/tutorial/create-api-key-en.png)
 
-只复制原始Token，不带Bearer、引号或空格；platform管理令牌不能代替。先核[当前价格](https://platform.acedata.cloud/services/seedance?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=seedance_zapier_guide_zh_pricing)、实际余额与套餐，试用以账号显示为准；Credits不是美元，Zapier任务费用另计。
+只复制原始Token，不带Bearer、引号或空格；platform管理令牌不能代替。先核[当前价格](https://platform.acedata.cloud/services/seedance?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen)、实际余额与套餐，试用以账号显示为准；Credits不是美元，Zapier任务费用另计。
 
 ## 3. 本平台粘贴位置与参数
 
@@ -49,7 +49,7 @@ Test和enabled Zap每次都会新发收费生成，先明确当日额度。动�
 
 回调迟到、pending或失败时不要重放生成。用 **Retrieve Seedance Video Task** 映射/粘贴原 **Ace Task ID**，继续查相同ID；查询不新生成。pending/false无成品URL，failed/false需核账，succeeded/true才映射 **Completed Video URL**、**Completed Media URLs** 和item URL。多结果保留所有成功项。
 
-生成429作为普通错误交人工核查，不请求Zapier自动限流重放收费动作；原任务查询429可以延后重试查询。用户设置的Autoreplay/手动重放仍可能重复生成，先查[使用记录](https://platform.acedata.cloud/console?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=seedance_zapier_guide_zh_usage)，端点无跨请求幂等键。定时测试只验收一次后停用。
+生成429作为普通错误交人工核查，不请求Zapier自动限流重放收费动作；原任务查询429可以延后重试查询。用户设置的Autoreplay/手动重放仍可能重复生成，先查[使用记录](https://platform.acedata.cloud/console?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen)，端点无跨请求幂等键。定时测试只验收一次后停用。
 
 ## 常见问题
 
