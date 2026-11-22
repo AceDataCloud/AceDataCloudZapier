@@ -12,7 +12,7 @@
 
 ## 2. 注册、登录并获取 Token
 
-1. 打开 [Ace Data Cloud → Applications](https://platform.acedata.cloud/console/applications?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=suno_zapier_readme_zh_api_key)，先注册或登录。
+1. 打开 [Ace Data Cloud → Applications](https://platform.acedata.cloud/console/applications?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen)，先注册或登录。
 2. 找到 **General application**；未创建时选 **Initialize General Application**。通用应用 Key 可调用账号已获权限的服务，专用应用则限对应服务。先确认 Suno 权限、当前价格和余额。
 3. 复制卡片上的 Key，或进入 **Manage Keys → Create**，单独命名 `Zapier Suno`，方便轮换和撤销。
 
@@ -25,7 +25,7 @@
 
 ![创建单独 Key，来自现有平台教程](../assets/tutorial/create-api-key-en.png)
 
-查看[当前服务与价格](https://platform.acedata.cloud/services/suno?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=suno_zapier_readme_zh_pricing)。体验额度以账号当前显示为准。Credits 不是美元，需按当前套餐换算；Zapier 任务费用另计。
+查看[当前服务与价格](https://platform.acedata.cloud/services/suno?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen)。体验额度以账号当前显示为准。Credits 不是美元，需按当前套餐换算；Zapier 任务费用另计。
 
 ## 3. 在 Zapier 连接
 
@@ -59,7 +59,7 @@
 - `failed / success=false`：先查使用记录，再决定是否新提交。
 - `succeeded / success=true`：将 **First Completed Audio URL**、**Completed Audio URLs** 或 **Track Audio URL** 映射给后续步骤；多首返回保留全部链接。
 
-重放生成可能重复扣费，先核[使用记录](https://platform.acedata.cloud/console?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=suno_zapier_readme_zh_usage)，关联任务、trace 和时间。测试 Zap 验收一次后停用，避免定时生成。Zap 步骤变绿不能代替唯一账单证明。
+重放生成可能重复扣费，先核[使用记录](https://platform.acedata.cloud/console?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen)，关联任务、trace 和时间。测试 Zap 验收一次后停用，避免定时生成。Zap 步骤变绿不能代替唯一账单证明。
 
 ## 常见问题
 

@@ -12,7 +12,7 @@ Select **Ace Data Cloud → Generate GPT Image**. Recover existing work with **R
 
 ## 2. Register / sign in and create a scoped token
 
-1. Open [Ace Data Cloud Applications](https://platform.acedata.cloud/console/applications?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=gpt_image_zapier_guide_api_key); register or sign in.
+1. Open [Ace Data Cloud Applications](https://platform.acedata.cloud/console/applications?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen); register or sign in.
 2. Find **General application**; if absent choose **Initialize General Application**. A general key uses your entitled services, while a dedicated application may be service-limited.
 3. Copy an existing API token or choose **Manage Keys → Create**. Name it `Zapier GPT Image`; the reused screenshot's `Dify tutorial` is only a historical example.
 4. Review expiration, usage limit and **Allowed APIs**. Include both `/openai/images/generations` and `/openai/tasks`. A successful read-only model-list connection test does not prove those generation permissions.
@@ -21,7 +21,7 @@ Select **Ace Data Cloud → Generate GPT Image**. Recover existing work with **R
 
 ![Create an independently named token](../../assets/tutorial/create-api-key-en.png)
 
-Copy only the raw token, without `Bearer `, quotes or spaces. A `platform-...` management token is different. Review [current service pricing](https://platform.acedata.cloud/services/openai?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=gpt_image_zapier_guide_pricing) and actual account balance/package before use. Any trial allocation is whatever your account now shows. Credits are not USD; use current package price/amount. Zapier task fees are separate.
+Copy only the raw token, without `Bearer `, quotes or spaces. A `platform-...` management token is different. Review [current service pricing](https://platform.acedata.cloud/services/openai?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen) and actual account balance/package before use. Any trial allocation is whatever your account now shows. Credits are not USD; use current package price/amount. Zapier task fees are separate.
 
 ## 3. Connect and configure the native fields
 
@@ -49,7 +49,7 @@ The editor **Test** and each enabled Zap run create a paid generation. Decide a 
 
 If a callback is late, pending or failed, do not replay generation. Use **Retrieve GPT Image Task**, map/paste the original **Ace Task ID**, and check that same ID later. Query is not a new media generation. `pending/false` has no final URLs, `failed/false` needs review, and `succeeded/true` provides **First Completed Image URL**, **Completed Media URLs** and item URL fields. Keep all successful output URLs, not only the first.
 
-Generation rate limits raise a normal error for manual review rather than asking Zapier to throttle-replay the paid action. Existing task-query rate limits may schedule a query retry. User-enabled platform Autoreplay/manual replay can still resubmit generation: inspect [usage](https://platform.acedata.cloud/console?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=gpt_image_zapier_guide_usage) first. There is no cross-request generation idempotency key. Turn off a scheduled test Zap after its one-event acceptance.
+Generation rate limits raise a normal error for manual review rather than asking Zapier to throttle-replay the paid action. Existing task-query rate limits may schedule a query retry. User-enabled platform Autoreplay/manual replay can still resubmit generation: inspect [usage](https://platform.acedata.cloud/console?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen) first. There is no cross-request generation idempotency key. Turn off a scheduled test Zap after its one-event acceptance.
 
 ## 5. Troubleshooting
 

@@ -60,7 +60,7 @@ The model's live rule also has `max_credits: 1`, so the gateway balance precheck
 
 ## Attribution acceptance
 
-Acquisition links retain the approved `utm_source=opensource`, `utm_medium=referral`, `utm_campaign=evergreen` convention. Zapier entry points are identified by `utm_content=suno_zapier_readme_*`, `zapier_auth_api_key`, or `zapier_help_*`. These parameters are navigation metadata, not API credentials, and are not added to chat requests.
+Acquisition links retain the approved `utm_source=opensource`, `utm_medium=referral`, `utm_campaign=evergreen` convention. These parameters are navigation metadata, not API credentials, and are not added to chat requests.
 
 - [ ] Open the tagged Applications link as an ordinary user; verify the attribution survives any sign-in/register redirect.
 - [ ] Read back the resulting registration/source event. Record event time and redacted account correlation.

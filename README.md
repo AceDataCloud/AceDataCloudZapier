@@ -27,7 +27,7 @@ All actions are in the same source-only app. Private upload, actual Zap results 
 
 ## 2. Register / sign in and get the right API token
 
-1. Open [Ace Data Cloud → Applications](https://platform.acedata.cloud/console/applications?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=suno_zapier_readme_api_key). Register or sign in first.
+1. Open [Ace Data Cloud → Applications](https://platform.acedata.cloud/console/applications?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen). Register or sign in first.
 2. Open **General application**. If missing, choose **Initialize General Application**. Its key can use the services available to your account; a dedicated application is limited to its service. Check Suno entitlement, current price and balance before any generation.
 3. Copy an existing key from the card, or open **Manage Keys → Create** and name a dedicated key `Zapier Suno`.
 
@@ -40,7 +40,7 @@ The reused screenshot's name `Dify tutorial` is only an example; enter `Zapier S
 
 ![Create an independently named token — existing platform tutorial](assets/tutorial/create-api-key-en.png)
 
-[Current Suno service and pricing](https://platform.acedata.cloud/services/suno?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=suno_zapier_readme_pricing) · [Current models](https://platform.acedata.cloud/models?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=suno_zapier_readme_models). Any trial allowance is whatever your account currently shows. Credits are not USD; use your current package rate. Creating music and the editor's Test button consume Ace balance; Zapier tasks are separately metered.
+[Current Suno service and pricing](https://platform.acedata.cloud/services/suno?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen) · [Current models](https://platform.acedata.cloud/models?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen). Any trial allowance is whatever your account currently shows. Credits are not USD; use your current package rate. Creating music and the editor's Test button consume Ace balance; Zapier tasks are separately metered.
 
 ## 3. Connect in Zapier
 
@@ -78,7 +78,7 @@ If a callback is late or a run is uncertain, **do not rerun generation**. Copy t
 
 The first URL is one returned track, not a replacement model or a separately charged request. When multiple tracks return, preserve all completed URLs. A completed Zap step is not an independent billing proof; match the task/trace/time to the usage record. Never publish a key, callback URL or private prompt.
 
-Before replaying an uncertain POST, check [Ace usage](https://platform.acedata.cloud/console?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=suno_zapier_readme_usage). Automatic replays can charge again because generation has no cross-request idempotency key. Stop a scheduled test Zap after its one accepted event.
+Before replaying an uncertain POST, check [Ace usage](https://platform.acedata.cloud/console?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen). Automatic replays can charge again because generation has no cross-request idempotency key. Stop a scheduled test Zap after its one accepted event.
 
 ## 6. Troubleshooting
 
