@@ -19,11 +19,13 @@ Service names appear in native actions and dedicated guides; public keyword disc
 | Additional native action and same-ID recovery | Current mode / guide |
 | --- | --- |
 | **Generate Seedance Video** / **Retrieve Seedance Video Task** | [Text and optional first-frame video](readme/services/seedance.md) |
-| **Generate HappyHorse Video** / **Retrieve HappyHorse Video Task** | [Text-to-video](readme/services/happyhorse.md) |
+| **Generate or Edit HappyHorse Video** / **Retrieve HappyHorse Video Task** | [Text, image, reference video and editing](readme/services/happyhorse.md) |
 | **Generate GPT Image** / **Retrieve GPT Image Task** | [Image generation; no editing](readme/services/gpt-image.md) |
 | **Generate or Edit Nano Banana Image** / **Retrieve Nano Banana Image Task** | [Generate/edit with reference images](readme/services/nano-banana.md) |
 
 All actions are in the same source-only app. Private upload, actual Zap results and public discovery are still pending.
+
+All five media model selectors read the current published API catalog. If it cannot be loaded, refresh before running the action; no stale model list is substituted.
 
 ## 2. Register / sign in and get the right API token
 

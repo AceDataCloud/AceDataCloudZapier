@@ -1,3 +1,6 @@
+const { beforeEach } = require('node:test');
+const { mockCatalogs } = require('./catalog-fixture');
+beforeEach(mockCatalogs);
 const assert = require('node:assert/strict');
 const { test, before, after, afterEach } = require('node:test');
 const nock = require('nock');
@@ -122,18 +125,17 @@ test('HappyHorse native action restricts to text-to-video models and exact resol
 
 test('GPT Image validates sizes and counts without inventing image edit or alternate provider fallback', async () => {
   for (const inputData of [
-    { model: 'nano-banana', prompt: 'test' },
+    { model: 'gpt-4o-image', prompt: 'test' },
     { model: 'gpt-image-2', prompt: 'test', n: 0 },
     { model: 'gpt-image-2', prompt: 'test', n: 11 },
     { model: 'gpt-image-2', prompt: 'test', size: '1000x1000' },
     { model: 'gpt-image-2', prompt: 'test', size: '4096x4096' },
     { model: 'gpt-image-2', prompt: 'test', size: '16x16' },
-    { model: 'gpt-image-1.5', prompt: 'test', size: '1024x1024' },
   ]) await assert.rejects(tester(app.creates.generate_gpt_image.operation.perform, { authData, inputData }));
-  read(cases[2], task(cases[2], { request: { model: 'nano-banana' } }));
+  read(cases[2], task(cases[2], { request: { model: 'gpt-4o-image' } }));
   await assert.rejects(tester(app.creates.retrieve_gpt_image_task.operation.perform, {
     authData, inputData: { task_id: 'original-gpt-image' },
-  }), /not from the selected media service/);
+  }), /not from the image service/);
 });
 
 test('Nano Banana edit requires reference URLs and obeys model resolution and image count', async () => {

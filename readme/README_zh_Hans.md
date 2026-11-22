@@ -8,7 +8,7 @@
 
 当前为源码预览 `0.0.1`，**没有已验证的 Zapier 私有上传、公开上架、成功 Zap 或账单**。[Zapier 官方应用目录](https://zapier.com/apps)是后续公开安装渠道，源码仓不是安装入口。管理员需先在已有合法账号中上传并提供准确的私有版本；公开审核后才补真实安装链接。
 
-应用内动作：**Generate Suno Music**（生成音乐并等待完成）、**Retrieve Suno Music Task**（只查原任务）、**Create Chat Response**（聊天）。新增原生动作：[Seedance视频](services/seedance.zh-CN.md)、[HappyHorse文生视频](services/happyhorse.zh-CN.md)、[GPT Image生成](services/gpt-image.zh-CN.md)、[Nano Banana生成/编辑](services/nano-banana.zh-CN.md)，每项都有原ID查询恢复动作。所有源码仍待私有上传/公开验收。Suno 在动作名与教程中明确显示；公开目录搜 `suno` 能否找到该应用，必须上架后验证，不承诺排名。
+应用内动作：**Generate Suno Music**（生成音乐并等待完成）、**Retrieve Suno Music Task**（只查原任务）、**Create Chat Response**（聊天）。新增原生动作：[Seedance视频](services/seedance.zh-CN.md)、[HappyHorse生成与编辑](services/happyhorse.zh-CN.md)、[GPT Image生成](services/gpt-image.zh-CN.md)、[Nano Banana生成/编辑](services/nano-banana.zh-CN.md)，每项都有原ID查询恢复动作。所有源码仍待私有上传/公开验收。Suno 在动作名与教程中明确显示；公开目录搜 `suno` 能否找到该应用，必须上架后验证，不承诺排名。
 
 ## 2. 注册、登录并获取 Token
 

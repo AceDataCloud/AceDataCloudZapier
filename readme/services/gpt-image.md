@@ -1,6 +1,6 @@
 # GPT Image for Zapier — by Ace Data Cloud
 
-Image generation with explicitly selected GPT Image models, including available 2/2.5 choices. This action does not implement image editing, DALL·E or Nano Banana fallback. This is the Ace-provided integration, not an official GPT Image app or endorsement.
+Image generation with a model selected from the current image API catalog, including GPT Image 2.6 and the documented DALL·E/Nano Banana compatible model IDs. The exact selected ID is sent; image editing is a separate operation. This is the Ace-provided integration, not an official GPT Image app or endorsement.
 
 [简体中文](gpt-image.zh-CN.md) · [Main guide](../../README.md)
 
@@ -41,7 +41,7 @@ Build **one-off trigger → Generate GPT Image → destination using First Compl
 | Image Size | `1024x1024` |
 | Quality | `low` |
 
-Image Count is optional 1–10 and each returned successful image is billed. For 2/2.5, size is auto or WIDTHxHEIGHT: multiples of 16, 655360–8294400 total pixels, longest side <=3840 and aspect <=3:1. Leave size unset for 1/1.5 in this action. It always uses a callback so a retrievable task is persisted. The shared /openai/tasks record must identify a gpt-image model; other service tasks are rejected.
+Model and Quality choices are read from the current published API schema. Image Count is optional 1–10; DALL·E 3 requires 1. Successful results are billed according to the selected model. GPT Image 2/2.5/2.6 supports auto or WIDTHxHEIGHT within the documented custom-size limits; DALL·E uses its documented fixed sizes. Choose quality for the selected model: DALL·E 2 uses standard, DALL·E 3 uses standard/hd, and GPT Image 2.5/2.6 also supports xhigh/max. The callback retains the original image-task ID, including tasks made with a compatible model alias.
 
 ## 4. Wait for the original task and map the result
 
