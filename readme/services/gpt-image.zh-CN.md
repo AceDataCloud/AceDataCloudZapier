@@ -1,6 +1,6 @@
 # 在 Zapier 使用 GPT Image — 由 Ace Data Cloud 提供
 
-明确选择 GPT Image 模型的图片生成，含当前 2/2.5 选项。本动作不含图像编辑、DALL·E 或 Nano Banana 替代。 这是 Ace 提供的集成，不是 GPT Image 官方应用或背书。
+从当前图片 API 目录选择型号，支持 GPT Image 2.6 和已发布的 DALL·E/Nano Banana 兼容型号。发送用户选定的原始型号；图像编辑属于单独操作。 这是 Ace 提供的集成，不是 GPT Image 官方应用或背书。
 
 [English](gpt-image.md) · [主指南](../README_zh_Hans.md)
 
@@ -41,7 +41,7 @@
 | Image Size | `1024x1024` |
 | Quality | `low` |
 
-张数可选 1–10，成功图片分别计费。2/2.5 尺寸可选 auto 或 WIDTHxHEIGHT，边长16倍数、总像素655360–8294400、长边≤3840、宽高比≤3:1；1/1.5 在本动作请留空尺寸。始终带 callback 以保存可查任务；共享 /openai/tasks 的 request.model 必须是 gpt-image，不能误用其他服务任务。
+型号和 Quality 从当前公开 API 参数读取。张数可选 1–10，DALL·E 3 必须为 1；成功结果按所选型号计费。GPT Image 2/2.5/2.6 支持 auto 或文档范围内的 WIDTHxHEIGHT，DALL·E 使用其固定尺寸。DALL·E 2 选 standard，DALL·E 3 选 standard/hd，GPT Image 2.5/2.6 还支持 xhigh/max。回调始终关联原图片任务 ID，兼容型号也可查询原任务。
 
 ## 4. 同ID等终态与结果
 

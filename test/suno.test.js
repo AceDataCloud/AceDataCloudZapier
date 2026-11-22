@@ -1,3 +1,6 @@
+const { beforeEach } = require('node:test');
+const { mockCatalogs } = require('./catalog-fixture');
+beforeEach(mockCatalogs);
 const assert = require('node:assert/strict');
 const { test, before, after, afterEach } = require('node:test');
 const nock = require('nock');

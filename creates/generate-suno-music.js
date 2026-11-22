@@ -28,7 +28,7 @@ module.exports = {
   operation: {
     cleanInputData: false,
     inputFields: [
-      { key: 'model', label: 'Suno Model', type: 'string', required: true, choices: suno.MODELS,
+      { key: 'model', label: 'Suno Model', type: 'string', required: true, choices: suno.modelChoices,
         helpText: 'Choose the exact Suno model. Access and pricing depend on your Ace Data Cloud account.' },
       { key: 'prompt', label: 'Music Prompt', type: 'text', required: true,
         helpText: 'Describe music or a song in up to 500 characters. This action uses inspiration mode.' },

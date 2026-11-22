@@ -1,6 +1,6 @@
 # HappyHorse for Zapier — by Ace Data Cloud
 
-Text-to-video only, with explicit 1.0-t2v or 1.1-t2v model selection. Image-to-video, references and video editing are not included. This is the Ace-provided integration, not an official HappyHorse app or endorsement.
+Select a current HappyHorse model and its video operation: text-to-video, image-to-video, reference-to-video, or video editing. Model choices come from the published API catalog. This is the Ace-provided integration, not an official HappyHorse app or endorsement.
 
 [简体中文](happyhorse.zh-CN.md) · [Main guide](../../README.md)
 
@@ -8,7 +8,7 @@ Text-to-video only, with explicit 1.0-t2v or 1.1-t2v model selection. Image-to-v
 
 **Source preview 0.0.1; no uploaded private version, public listing or successful Zap is evidenced.** The eventual official installation channel is [Zapier App Directory](https://zapier.com/apps). An authorized administrator must first upload and share the exact private Ace version. Do not interpret this source link as installation. After publication, search `HappyHorse`, `HappyHorse by Ace Data Cloud`, and the exact action; actual discovery and ranking must be checked.
 
-Select **Ace Data Cloud → Generate HappyHorse Video**. Recover existing work with **Retrieve HappyHorse Video Task**. The shared application follows Zapier's one-API/auth publication rules; no duplicate app is registered just for keywords.
+Select **Ace Data Cloud → Generate or Edit HappyHorse Video**. Recover existing work with **Retrieve HappyHorse Video Task**. The shared application follows Zapier's one-API/auth publication rules; no duplicate app is registered just for keywords.
 
 ## 2. Register / sign in and create a scoped token
 
@@ -31,15 +31,18 @@ Paste the token into **API token** and put a non-secret label in **Connection na
 
 Official historical screenshot edited on **2026-10-17**, reused **2026-10-18**. Original capture date unknown. It is only a form preview, not a real connection/run/upload or exact current layout; [source record](../../assets/tutorial/sources.json). No real HappyHorse-in-Zapier parameter/result screenshot is available yet.
 
-Build **one-off trigger → Generate HappyHorse Video → destination using Completed Video URL**.
+Build **one-off trigger → Generate or Edit HappyHorse Video → destination using Completed Video URL**.
 
 | Field | Example (paid when tested) |
 | --- | --- |
 | HappyHorse Model | `happyhorse-1.1-t2v` |
+| Video Operation | `generate` |
 | Video Prompt | `A white horse moves slowly in sunrise light.` |
 | Duration (Seconds) | `5` |
 | Resolution | `720P` |
 | Aspect Ratio | `16:9` |
+
+For `image_to_video`, provide **First Image URL**; for `reference_to_video`, provide **Reference Image URLs**; for `video_edit`, provide **Original Video URL**. Select the operation matching the model and leave unrelated input fields empty.
 
 Duration must be a whole number from 3 to 15 seconds when set. Resolution values are exactly 720P or 1080P, including the capital P. Model/action pairs cannot be silently substituted. Actual duration and billing come from the final task.
 

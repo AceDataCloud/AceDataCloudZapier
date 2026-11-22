@@ -1,0 +1,948 @@
+{
+  "8f01fe72-8a3e-4872-8d8d-330cde179b3a": {
+    "id": "8f01fe72-8a3e-4872-8d8d-330cde179b3a",
+    "definition": {
+      "paths": {
+        "/openai/images/generations": {
+          "post": {
+            "requestBody": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "async": {
+                        "type": "boolean"
+                      },
+                      "background": {
+                        "default": "auto",
+                        "enum": [
+                          "transparent",
+                          "opaque",
+                          "auto"
+                        ],
+                        "type": "string"
+                      },
+                      "callback_url": {
+                        "type": "string"
+                      },
+                      "complexity": {
+                        "enum": [
+                          "low",
+                          "medium",
+                          "high"
+                        ],
+                        "type": "string"
+                      },
+                      "frame_count": {
+                        "maximum": 16,
+                        "minimum": 2,
+                        "type": "integer"
+                      },
+                      "frame_duration_ms": {
+                        "maximum": 655350,
+                        "minimum": 20,
+                        "type": "integer"
+                      },
+                      "model": {
+                        "enum": [
+                          "dall-e-2",
+                          "dall-e-3",
+                          "gpt-image-1",
+                          "gpt-image-1.5",
+                          "gpt-image-2",
+                          "gpt-image-2.5-flare",
+                          "gpt-image-2.5-flare:reverse",
+                          "gpt-image-2.5-flare:official",
+                          "gpt-image-2.5-sunburst",
+                          "gpt-image-2.5-sunburst:reverse",
+                          "gpt-image-2.5-sunburst:official",
+                          "gpt-image-2:reverse",
+                          "gpt-image-2:official",
+                          "nano-banana",
+                          "nano-banana-2-lite",
+                          "nano-banana-2",
+                          "nano-banana-2.1",
+                          "nano-banana-pro",
+                          "gpt-image-2.6-flare",
+                          "gpt-image-2.6-flare:reverse",
+                          "gpt-image-2.6-flare:official",
+                          "gpt-image-2.6-sunburst",
+                          "gpt-image-2.6-sunburst:reverse",
+                          "gpt-image-2.6-sunburst:official"
+                        ],
+                        "type": "string"
+                      },
+                      "moderation": {
+                        "default": "auto",
+                        "enum": [
+                          "low",
+                          "auto"
+                        ],
+                        "type": "string"
+                      },
+                      "n": {
+                        "default": 1,
+                        "maximum": 10,
+                        "minimum": 1,
+                        "type": "integer"
+                      },
+                      "output_compression": {
+                        "default": 100,
+                        "maximum": 100,
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "output_format": {
+                        "default": "png",
+                        "enum": [
+                          "png",
+                          "jpeg",
+                          "webp",
+                          "gif"
+                        ],
+                        "type": "string"
+                      },
+                      "partial_images": {
+                        "default": 0,
+                        "maximum": 3,
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "prompt": {
+                        "type": "string"
+                      },
+                      "quality": {
+                        "default": "auto",
+                        "enum": [
+                          "auto",
+                          "high",
+                          "medium",
+                          "low",
+                          "xhigh",
+                          "max",
+                          "hd",
+                          "standard"
+                        ],
+                        "type": "string"
+                      },
+                      "response_format": {
+                        "default": "url",
+                        "enum": [
+                          "url",
+                          "b64_json"
+                        ],
+                        "type": "string"
+                      },
+                      "size": {
+                        "default": "auto",
+                        "pattern": "^(auto|\\d+x\\d+)$",
+                        "type": "string"
+                      },
+                      "style": {
+                        "default": "vivid",
+                        "enum": [
+                          "vivid",
+                          "natural"
+                        ],
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "d656e357-50cb-4390-b8c9-67464bc2a2f2": {
+    "id": "d656e357-50cb-4390-b8c9-67464bc2a2f2",
+    "definition": {
+      "paths": {
+        "/happyhorse/videos": {
+          "post": {
+            "requestBody": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "action": {
+                        "default": "generate",
+                        "enum": [
+                          "generate",
+                          "image_to_video",
+                          "reference_to_video",
+                          "video_edit"
+                        ],
+                        "type": "string"
+                      },
+                      "async": {
+                        "type": "boolean"
+                      },
+                      "audio_setting": {
+                        "default": "auto",
+                        "enum": [
+                          "auto",
+                          "origin"
+                        ],
+                        "type": "string"
+                      },
+                      "callback_url": {
+                        "type": "string"
+                      },
+                      "duration": {
+                        "default": 5,
+                        "maximum": 15,
+                        "minimum": 3,
+                        "type": "integer"
+                      },
+                      "image_url": {
+                        "type": "string"
+                      },
+                      "image_urls": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "model": {
+                        "default": "happyhorse-1.1-t2v",
+                        "enum": [
+                          "happyhorse-1.0-t2v",
+                          "happyhorse-1.1-t2v",
+                          "happyhorse-1.0-i2v",
+                          "happyhorse-1.1-i2v",
+                          "happyhorse-1.0-r2v",
+                          "happyhorse-1.1-r2v",
+                          "happyhorse-1.0-video-edit"
+                        ],
+                        "type": "string"
+                      },
+                      "prompt": {
+                        "type": "string"
+                      },
+                      "ratio": {
+                        "default": "16:9",
+                        "enum": [
+                          "16:9",
+                          "9:16",
+                          "1:1",
+                          "4:3",
+                          "3:4"
+                        ],
+                        "type": "string"
+                      },
+                      "resolution": {
+                        "default": "1080P",
+                        "enum": [
+                          "720P",
+                          "1080P"
+                        ],
+                        "type": "string"
+                      },
+                      "seed": {
+                        "maximum": 2147483647,
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "video_url": {
+                        "type": "string"
+                      },
+                      "watermark": {
+                        "default": false,
+                        "type": "boolean"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "0083b874-4da6-40df-87e3-835b1300c1e8": {
+    "id": "0083b874-4da6-40df-87e3-835b1300c1e8",
+    "definition": {
+      "paths": {
+        "/seedance/videos": {
+          "post": {
+            "requestBody": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "async": {
+                        "type": "boolean"
+                      },
+                      "callback_url": {
+                        "type": "string"
+                      },
+                      "camerafixed": {
+                        "type": "boolean"
+                      },
+                      "content": {
+                        "items": {
+                          "discriminator": {
+                            "propertyName": "type"
+                          },
+                          "oneOf": [
+                            {
+                              "additionalProperties": false,
+                              "example": {
+                                "text": "A kitten yawning at the camera. --rs 720p --rt 16:9 --dur 5 --fps 24 --wm true --seed 11 --cf false",
+                                "type": "text"
+                              },
+                              "properties": {
+                                "text": {
+                                  "description": "Seedance Videos Text",
+                                  "example": "A kitten yawning at the camera. --rs 720p --rt 16:9 --dur 5 --fps 24 --wm true --seed 11 --cf false",
+                                  "maxLength": 1000,
+                                  "type": "string"
+                                },
+                                "type": {
+                                  "description": "Seedance Videos Type",
+                                  "enum": [
+                                    "text"
+                                  ],
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "type",
+                                "text"
+                              ],
+                              "type": "object"
+                            },
+                            {
+                              "additionalProperties": false,
+                              "example": {
+                                "image_url": {
+                                  "url": "https://cdn.acedata.cloud/v8073y.png"
+                                },
+                                "role": "first_frame",
+                                "type": "image_url"
+                              },
+                              "properties": {
+                                "image_url": {
+                                  "additionalProperties": false,
+                                  "description": "Seedance Videos Image Url",
+                                  "properties": {
+                                    "url": {
+                                      "description": "Seedance Videos Image Url Url",
+                                      "example": "https://cdn.acedata.cloud/v8073y.png",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "url"
+                                  ],
+                                  "type": "object"
+                                },
+                                "role": {
+                                  "description": "Seedance Videos Role",
+                                  "enum": [
+                                    "first_frame",
+                                    "last_frame",
+                                    "reference_image"
+                                  ],
+                                  "type": "string"
+                                },
+                                "type": {
+                                  "description": "Seedance Videos Type 2",
+                                  "enum": [
+                                    "image_url"
+                                  ],
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "type",
+                                "image_url"
+                              ],
+                              "type": "object"
+                            },
+                            {
+                              "additionalProperties": false,
+                              "example": {
+                                "audio_url": {
+                                  "url": "https://cdn.acedata.cloud/suno_demo.mp3"
+                                },
+                                "role": "reference_audio",
+                                "type": "audio_url"
+                              },
+                              "properties": {
+                                "audio_url": {
+                                  "additionalProperties": false,
+                                  "description": "Seedance Videos Audio Url",
+                                  "properties": {
+                                    "url": {
+                                      "description": "Seedance Videos Audio Url Url",
+                                      "example": "https://cdn.acedata.cloud/suno_demo.mp3",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "url"
+                                  ],
+                                  "type": "object"
+                                },
+                                "role": {
+                                  "description": "Seedance Videos Audio Role",
+                                  "enum": [
+                                    "reference_audio"
+                                  ],
+                                  "type": "string"
+                                },
+                                "type": {
+                                  "description": "Seedance Videos Type 3",
+                                  "enum": [
+                                    "audio_url"
+                                  ],
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "type",
+                                "audio_url",
+                                "role"
+                              ],
+                              "type": "object"
+                            },
+                            {
+                              "additionalProperties": false,
+                              "example": {
+                                "role": "reference_video",
+                                "type": "video_url",
+                                "video_url": {
+                                  "url": "https://cdn.acedata.cloud/43a57990c0.mp4"
+                                }
+                              },
+                              "properties": {
+                                "role": {
+                                  "description": "Seedance Videos Video Role",
+                                  "enum": [
+                                    "reference_video"
+                                  ],
+                                  "type": "string"
+                                },
+                                "type": {
+                                  "description": "Seedance Videos Type 4",
+                                  "enum": [
+                                    "video_url"
+                                  ],
+                                  "type": "string"
+                                },
+                                "video_url": {
+                                  "additionalProperties": false,
+                                  "description": "Seedance Videos Video Url",
+                                  "properties": {
+                                    "url": {
+                                      "description": "Seedance Videos Video Url Url",
+                                      "example": "https://cdn.acedata.cloud/43a57990c0.mp4",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "url"
+                                  ],
+                                  "type": "object"
+                                }
+                              },
+                              "required": [
+                                "type",
+                                "video_url",
+                                "role"
+                              ],
+                              "type": "object"
+                            }
+                          ]
+                        },
+                        "type": "array"
+                      },
+                      "duration": {
+                        "maximum": 30,
+                        "minimum": -1,
+                        "type": "integer"
+                      },
+                      "execution_expires_after": {
+                        "default": 172800,
+                        "maximum": 259200,
+                        "minimum": 3600,
+                        "type": "integer"
+                      },
+                      "frames": {
+                        "maximum": 289,
+                        "minimum": 29,
+                        "type": "integer"
+                      },
+                      "generate_audio": {
+                        "default": false,
+                        "type": "boolean"
+                      },
+                      "model": {
+                        "enum": [
+                          "doubao-seedance-1-0-pro-250528",
+                          "doubao-seedance-1-0-pro-fast-251015",
+                          "doubao-seedance-1-5-pro-251215",
+                          "doubao-seedance-1-0-lite-t2v-250428",
+                          "doubao-seedance-1-0-lite-i2v-250428",
+                          "doubao-seedance-2-0-260128",
+                          "doubao-seedance-2-0-fast-260128",
+                          "doubao-seedance-2-0-mini-260615",
+                          "doubao-seedance-2-5-260628"
+                        ],
+                        "type": "string"
+                      },
+                      "omni_reference_task_type": {
+                        "enum": [
+                          "auto",
+                          "reference",
+                          "edit",
+                          "extend"
+                        ],
+                        "type": "string"
+                      },
+                      "output_format": {
+                        "enum": [
+                          "mp4",
+                          "mov"
+                        ],
+                        "type": "string"
+                      },
+                      "priority": {
+                        "default": 0,
+                        "maximum": 9,
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "ratio": {
+                        "default": "16:9",
+                        "enum": [
+                          "16:9",
+                          "4:3",
+                          "1:1",
+                          "3:4",
+                          "9:16",
+                          "21:9",
+                          "adaptive"
+                        ],
+                        "type": "string"
+                      },
+                      "resolution": {
+                        "enum": [
+                          "480p",
+                          "720p",
+                          "1080p",
+                          "4k"
+                        ],
+                        "type": "string"
+                      },
+                      "return_last_frame": {
+                        "default": false,
+                        "type": "boolean"
+                      },
+                      "safety_identifier": {
+                        "type": "string"
+                      },
+                      "seed": {
+                        "maximum": 4294967295,
+                        "minimum": -1,
+                        "type": "integer"
+                      },
+                      "tools": {
+                        "items": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "limit": {
+                              "default": 10,
+                              "description": "Seedance Videos Tools Limit",
+                              "maximum": 50,
+                              "minimum": 1,
+                              "type": "integer"
+                            },
+                            "max_keyword": {
+                              "description": "Seedance Videos Tools Max Keyword",
+                              "maximum": 50,
+                              "minimum": 1,
+                              "type": "integer"
+                            },
+                            "sources": {
+                              "description": "Seedance Videos Tools Sources",
+                              "items": {
+                                "enum": [
+                                  "toutiao",
+                                  "douyin",
+                                  "moji",
+                                  "search_engine"
+                                ],
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
+                            "type": {
+                              "description": "Seedance Videos Tools Type",
+                              "enum": [
+                                "web_search"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "type"
+                          ],
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "watermark": {
+                        "type": "boolean"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "9d8a117e-31ca-4322-a0fd-1771296ec610": {
+    "id": "9d8a117e-31ca-4322-a0fd-1771296ec610",
+    "definition": {
+      "paths": {
+        "/nano-banana/images": {
+          "post": {
+            "requestBody": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "action": {
+                        "enum": [
+                          "generate",
+                          "edit"
+                        ],
+                        "type": "string"
+                      },
+                      "aspect_ratio": {
+                        "enum": [
+                          "1:1",
+                          "3:2",
+                          "2:3",
+                          "16:9",
+                          "9:16",
+                          "4:3",
+                          "3:4"
+                        ],
+                        "type": "string"
+                      },
+                      "async": {
+                        "type": "boolean"
+                      },
+                      "callback_url": {
+                        "type": "string"
+                      },
+                      "count": {
+                        "default": 1,
+                        "maximum": 4,
+                        "minimum": 1,
+                        "type": "integer"
+                      },
+                      "image_urls": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "model": {
+                        "enum": [
+                          "nano-banana",
+                          "nano-banana-2-lite",
+                          "nano-banana-2",
+                          "nano-banana-2.1",
+                          "nano-banana-pro",
+                          "nano-banana:official",
+                          "nano-banana-2-lite:official",
+                          "nano-banana-2:official",
+                          "nano-banana-pro:official"
+                        ],
+                        "type": "string"
+                      },
+                      "prompt": {
+                        "type": "string"
+                      },
+                      "resolution": {
+                        "enum": [
+                          "1K",
+                          "2K",
+                          "4K"
+                        ],
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "09a26295-5972-4392-9318-dcd9b218f90d": {
+    "id": "09a26295-5972-4392-9318-dcd9b218f90d",
+    "definition": {
+      "paths": {
+        "/suno/audios": {
+          "post": {
+            "requestBody": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "action": {
+                        "default": "generate",
+                        "enum": [
+                          "generate",
+                          "extend",
+                          "upload_extend",
+                          "upload_cover",
+                          "concat",
+                          "cover",
+                          "artist_consistency",
+                          "artist_consistency_vox",
+                          "stems",
+                          "all_stems",
+                          "add_stem",
+                          "extract_stem",
+                          "sounds",
+                          "adjust_speed",
+                          "replace_section",
+                          "underpainting",
+                          "overpainting",
+                          "remaster",
+                          "mashup",
+                          "samples",
+                          "inspo"
+                        ],
+                        "type": "string"
+                      },
+                      "async": {
+                        "type": "boolean"
+                      },
+                      "audio_format": {
+                        "enum": [
+                          "mp3"
+                        ],
+                        "type": "string"
+                      },
+                      "audio_id": {
+                        "type": "string"
+                      },
+                      "audio_urls": {
+                        "items": {
+                          "pattern": "^https?://",
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "audio_weight": {
+                        "maximum": 1,
+                        "minimum": 0,
+                        "type": "number"
+                      },
+                      "bpm": {
+                        "maximum": 300,
+                        "minimum": 1,
+                        "type": "integer"
+                      },
+                      "callback_url": {
+                        "type": "string"
+                      },
+                      "continue_at": {
+                        "type": "number"
+                      },
+                      "custom": {
+                        "default": false,
+                        "type": "boolean"
+                      },
+                      "duration": {
+                        "maximum": 360,
+                        "minimum": 10,
+                        "type": "integer"
+                      },
+                      "instrumental": {
+                        "type": "boolean"
+                      },
+                      "keep_pitch": {
+                        "default": false,
+                        "type": "boolean"
+                      },
+                      "key": {
+                        "type": "string"
+                      },
+                      "lyric": {
+                        "type": "string"
+                      },
+                      "lyric_prompt": {
+                        "type": "string"
+                      },
+                      "mashup_audio_ids": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "max_mode": {
+                        "default": false,
+                        "type": "boolean"
+                      },
+                      "model": {
+                        "enum": [
+                          "chirp-v6",
+                          "chirp-v6-wild",
+                          "chirp-v6-mini",
+                          "chirp-v5-5",
+                          "chirp-v5",
+                          "chirp-v4-5-plus",
+                          "chirp-v4-5",
+                          "chirp-v4",
+                          "chirp-v3-5",
+                          "chirp-v3-0"
+                        ],
+                        "type": "string"
+                      },
+                      "negative_tags": {
+                        "type": "string"
+                      },
+                      "overpainting_end": {
+                        "type": "number"
+                      },
+                      "overpainting_start": {
+                        "type": "number"
+                      },
+                      "persona_id": {
+                        "type": "string"
+                      },
+                      "prompt": {
+                        "type": "string"
+                      },
+                      "replace_section_end": {
+                        "type": "number"
+                      },
+                      "replace_section_result_mode": {
+                        "default": "full_song",
+                        "enum": [
+                          "candidates",
+                          "full_song"
+                        ],
+                        "type": "string"
+                      },
+                      "replace_section_start": {
+                        "type": "number"
+                      },
+                      "samples_end": {
+                        "type": "number"
+                      },
+                      "samples_start": {
+                        "type": "number"
+                      },
+                      "sound": {
+                        "type": "string"
+                      },
+                      "sound_type": {
+                        "enum": [
+                          "one-shot",
+                          "loop"
+                        ],
+                        "type": "string"
+                      },
+                      "speed_multiplier": {
+                        "maximum": 4,
+                        "minimum": 0.25,
+                        "type": "number"
+                      },
+                      "stem_type": {
+                        "enum": [
+                          "vocals",
+                          "backing_vocals",
+                          "drums",
+                          "bass",
+                          "guitar",
+                          "keyboard",
+                          "percussion",
+                          "strings",
+                          "synth",
+                          "fx",
+                          "brass",
+                          "woodwinds"
+                        ],
+                        "type": "string"
+                      },
+                      "style": {
+                        "type": "string"
+                      },
+                      "style_influence": {
+                        "maximum": 1,
+                        "minimum": 0,
+                        "type": "number"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "underpainting_end": {
+                        "type": "number"
+                      },
+                      "underpainting_start": {
+                        "type": "number"
+                      },
+                      "variation_category": {
+                        "enum": [
+                          "high",
+                          "normal",
+                          "subtle"
+                        ],
+                        "type": "string"
+                      },
+                      "variety": {
+                        "enum": [
+                          "off",
+                          "normal",
+                          "high",
+                          "extra",
+                          "max"
+                        ],
+                        "type": "string"
+                      },
+                      "vocal_gender": {
+                        "enum": [
+                          "f",
+                          "m"
+                        ],
+                        "type": "string"
+                      },
+                      "weirdness": {
+                        "maximum": 1,
+                        "minimum": 0,
+                        "type": "number"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

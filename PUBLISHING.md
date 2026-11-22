@@ -13,7 +13,7 @@ As of 2026-10-18, this integration is source-only. No integration ID, uploaded p
 | Icon | [Transparent 512 px PNG](assets/acedatacloud-icon.png) | Upload and inspect rendering in Developer Platform. |
 | Privacy / terms / support | [Privacy](https://docs.acedata.cloud/en/resources/privacy), [terms](https://docs.acedata.cloud/en/resources/terms), [support](https://docs.acedata.cloud/en/resources/support) | Confirm current data handling and safe contact instructions. |
 | Help article | [English draft](HELP.md) | Publish from the owning documentation source, then record its actual public URL. |
-| Actions | Five named media generation actions, their five original-task recovery actions, and Create Chat Response | Suno plus Seedance video, HappyHorse text video, GPT Image generation, Nano Banana generate/edit, each with same-ID recovery; and text chat. |
+| Actions | Five named media generation actions, their five original-task recovery actions, and Create Chat Response | Suno plus Seedance video, HappyHorse text/image/reference video and editing, GPT Image generation, Nano Banana generate/edit, each with same-ID recovery; and text chat. |
 
 All Zapier interface fields and error messages remain in English. The Chinese ecosystem report is a separate internal deliverable.
 
@@ -112,8 +112,8 @@ Verified on 2026-10-12: [CLI and Node 22](https://docs.zapier.com/integrations/b
 ## Additional media actions — source implemented, cloud acceptance pending
 
 - [ ] Seedance: exact model, 1–1000 character text, optional first-frame object URL, model-specific duration/resolution/audio. Excludes audio/video references, last-frame mixtures, editing and extension.
-- [ ] HappyHorse: only 1.0/1.1 t2v, action=generate, 3–15 seconds, exact 720P/1080P. Other modes are not exposed.
-- [ ] GPT Image: exact gpt-image model, generation only, n=1–10, documented 2/2.5 size/quality. Callback is always supplied so the original /openai/tasks row can be retrieved; reject another image service's task.
+- [ ] HappyHorse: validate all published models and their generate/image_to_video/reference_to_video/video_edit input mode, 3–15 seconds, and exact 720P/1080P.
+- [ ] GPT Image: use the current API model/quality catalogs, including compatible aliases and 2.6; generation only, n=1–10 (DALL-E 3 requires 1), with the selected model's documented sizes/quality. Verify callback and same-ID recovery for compatible aliases too.
 - [ ] Nano Banana: explicit generate/edit, required HTTPS reference list for edit, count=1–4 and exact per-model 1K/2K/4K restriction. Actual successful image count determines billing.
 - [ ] Each service: capture native fields in the private Zap editor without pressing Test; then separately authorize and record paid editor/enabled-Zap acceptance, original task callback/resume, final media and exactly one terminal usage record per submission.
 - [ ] Each same-ID recovery action: pending or failed has no final URLs. Do not replay generation to recover a task. No raw request, callback, credential/user metadata or upstream error appears in outputs.

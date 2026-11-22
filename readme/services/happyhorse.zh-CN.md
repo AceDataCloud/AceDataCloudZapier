@@ -1,6 +1,6 @@
 # 在 Zapier 使用 HappyHorse — 由 Ace Data Cloud 提供
 
-仅文生视频，明确选 1.0-t2v 或 1.1-t2v；本动作不含图生视频、参考图或视频编辑。 这是 Ace 提供的集成，不是 HappyHorse 官方应用或背书。
+从当前 API 目录选择 HappyHorse 型号，并选择对应的文生视频、图生视频、参考图或视频编辑操作。 这是 Ace 提供的集成，不是 HappyHorse 官方应用或背书。
 
 [English](happyhorse.md) · [主指南](../README_zh_Hans.md)
 
@@ -8,7 +8,7 @@
 
 当前为源码预览0.0.1，没有已证实的私有上传、公开目录、实际安装或成功Zap。[Zapier官方目录](https://zapier.com/apps)是后续公开入口，源码不是安装。需已有管理员先上传并分享准确私有版本。公开后核关键词 `HappyHorse`、`HappyHorse by Ace Data Cloud` 和动作名称；不承诺索引或排名。
 
-动作：**Generate HappyHorse Video**；恢复：**Retrieve HappyHorse Video Task**。同一Ace应用承载服务动作，遵循同API/auth反重复规则，不为关键词另注册空应用。
+动作：**Generate or Edit HappyHorse Video**；恢复：**Retrieve HappyHorse Video Task**。同一Ace应用承载服务动作，遵循同API/auth反重复规则，不为关键词另注册空应用。
 
 ## 2. 获取正确的Token
 
@@ -31,15 +31,18 @@
 
 2026-10-17编辑、10-18复用，原拍摄日期未知；仅表单参考，不证明连接/上传/运行，也不保证当前布局。[来源](../../assets/tutorial/sources.json)。没有本服务在Zapier内真实参数/结果截图。
 
-流程：**一次性触发 → Generate HappyHorse Video → 用 Completed Video URL 的后续步骤**。
+流程：**一次性触发 → Generate or Edit HappyHorse Video → 用 Completed Video URL 的后续步骤**。
 
 | 字段 | 示例（Test会收费） |
 | --- | --- |
 | HappyHorse Model | `happyhorse-1.1-t2v` |
+| Video Operation | `generate` |
 | Video Prompt | `A white horse moves slowly in sunrise light.` |
 | Duration (Seconds) | `5` |
 | Resolution | `720P` |
 | Aspect Ratio | `16:9` |
+
+`image_to_video` 需要 **First Image URL**，`reference_to_video` 需要 **Reference Image URLs**，`video_edit` 需要 **Original Video URL**。请选择与型号匹配的操作，无关输入留空。
 
 时长设为 3–15 的整数，分辨率必须精确为 720P 或 1080P（大写 P）。不能把 i2v/r2v/编辑模型当文生视频，也不自动换模型。最终时长与费用以任务记录为准。
 
