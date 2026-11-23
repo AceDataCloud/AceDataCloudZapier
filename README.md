@@ -35,7 +35,7 @@ All five media model selectors read the current published API catalog. If it can
 
 ![Copy an API token or open Manage Keys — existing platform tutorial](assets/tutorial/get-api-key-en.png)
 
-4. Review **Expiration Time**, **Set Usage Limitation** and **Allowed APIs**. If API restrictions are enabled, include both `/suno/audios` and `/suno/tasks` for this workflow. The chat action also needs its own Chat Completions access. The read-only connection test cannot prove access to every generation API.
+4. Review **Expiration Time**, **Set Usage Limitation** and **Allowed APIs**. If API restrictions are enabled, include both `/suno/audios` and `/suno/tasks` for this workflow. The chat action needs access to the selected model's Chat Completions, Messages, or Responses API. The read-only connection test cannot prove access to every generation API.
 5. Copy only the raw API token, with no `Bearer ` prefix, quotes or spaces. A `platform-...` management token cannot replace it.
 
 The reused screenshot's name `Dify tutorial` is only an example; enter `Zapier Suno` for this connection.

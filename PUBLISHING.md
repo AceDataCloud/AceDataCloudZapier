@@ -88,7 +88,7 @@ Target: add **Ace Data Cloud** to **AI by Zapier → Bring Your Own Key → Prov
 
 Official provider evidence: [AI by Zapier guide](https://help.zapier.com/hc/en-us/articles/8496342944013-Use-AI-by-Zapier-to-analyze-and-return-data) lists OpenAI, Anthropic, Google Gemini, Azure OpenAI and Amazon Bedrock (read 2026-10-18). No public self-service registry or custom-provider/base-URL onboarding is documented. The independent [OpenRouter app](https://zapier.com/apps/openrouter/integrations) demonstrates the public-app path, not automatic membership in this built-in provider list.
 
-Reviewable facts for a future authorized technical submission: Ace owns its API surface; calls use application API tokens; a free token check is `GET https://api.acedata.cloud/v1/models`; chat models are selectable from `https://platform.acedata.cloud/api/v1/models/?type=chat`; chat uses `POST https://api.acedata.cloud/v1/chat/completions`; platform-management tokens are separate; the LLM action is text-only, non-streaming and has no tools/memory contract. Zapier's agentic/tool/structured-output requirements would need their own verified support before claiming native-provider parity. Do not send credentials in a public ticket. No provider request, partner agreement, outbound marketing, or approval is claimed here.
+Reviewable facts for a future authorized technical submission: Ace owns its API surface; calls use application API tokens; a free token check is `GET https://api.acedata.cloud/v1/models`; chat models are selectable from `https://platform.acedata.cloud/api/v1/models/?type=chat`; chat uses the model's published Chat Completions, Messages, or Responses endpoint under `https://api.acedata.cloud/v1`; platform-management tokens are separate; the LLM action is text-only, non-streaming and has no tools/memory contract. Zapier's agentic/tool/structured-output requirements would need their own verified support before claiming native-provider parity. Do not send credentials in a public ticket. No provider request, partner agreement, outbound marketing, or approval is claimed here.
 
 ## Public submission gate
 
@@ -120,3 +120,9 @@ Verified on 2026-10-12: [CLI and Node 22](https://docs.zapier.com/integrations/b
 - [ ] Public discovery: verify each service name and exact action term after approval, with ordinary-user search/install evidence, not only package metadata.
 
 All media generation 429 errors are normal `GenerationRateLimited` errors rather than a `ThrottledError` that asks Zapier to replay the paid submission. Rate-limited existing-task reads may use a delayed query retry. Explicit Zapier Autoreplay or a user's manual replay can still resubmit a request, so inspect the original task and usage first; no cross-request idempotency is promised.
+
+## Native chat protocol release dependency
+
+The native chat update requires the public model `endpoints` metadata from [PlatformBackend #2382](https://github.com/AceDataCloud/PlatformBackend/pull/2382). Keep this consumer update in Draft until the backend is deployed and the actual public response includes those declarations. The103-model fixture is a candidate contract, not live verification. Missing or unsupported metadata stops the action before generation rather than guessing a protocol.
+
+The text action preserves the selected model, routes system instructions and output limits to each protocol's fields, and maps native text/usage to existing Zap output fields. Messages requires an explicit output limit. Its input-token mapping includes uncached input and the separately reported cache read/write tokens. Finish reasons retain the chosen protocol's value. Generation429 is a normal error requiring review; it does not request Zapier's automatic throttle replay.

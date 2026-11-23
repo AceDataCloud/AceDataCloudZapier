@@ -2,6 +2,7 @@ const assert = require('node:assert/strict');
 const test = require('node:test');
 const zapier = require('zapier-platform-core');
 const app = require('../index');
+const catalog = require('./fixtures/chat-protocols.json');
 
 const bundle = {
   authData: { api_key: 'test-token', connection_name: 'Work' },
@@ -12,6 +13,7 @@ const zWithResponse = (response, requests = []) => ({
   errors: zapier.errors,
   request: async (request) => {
     requests.push(request);
+    if (request.url === 'https://platform.acedata.cloud/api/v1/models/?type=chat' && !Array.isArray(response?.data?.data)) return { status: 200, data: catalog };
     return response;
   },
 });
@@ -64,10 +66,11 @@ test('chat action sends one paid, non-streaming request and exposes mapping fiel
     ...bundle,
     inputData: { ...bundle.inputData, system_prompt: 'Be brief.', max_completion_tokens: '32' },
   });
-  assert.equal(requests.length, 1);
-  assert.equal(requests[0].url, 'https://api.acedata.cloud/v1/chat/completions');
-  assert.equal(requests[0].headers.Authorization, 'Bearer test-token');
-  assert.deepEqual(requests[0].body, {
+  assert.equal(requests.length, 2);
+  assert.equal(requests[0].headers?.Authorization, undefined);
+  assert.equal(requests[1].url, 'https://api.acedata.cloud/v1/chat/completions');
+  assert.equal(requests[1].headers.Authorization, 'Bearer test-token');
+  assert.deepEqual(requests[1].body, {
     model: 'gpt-5.5', stream: false, max_completion_tokens: 32,
     messages: [
       { role: 'system', content: 'Be brief.' },
@@ -97,11 +100,11 @@ test('chat action accepts a model refusal as visible text and rejects empty resu
 test('auth failures, rate limits, and balance errors use Zapier error types', async () => {
   const run = (response) => app.creates.send_chat.operation.perform(zWithResponse(response), bundle);
   await assert.rejects(run({ status: 401, data: {} }), zapier.errors.ExpiredAuthError);
-  await assert.rejects(run({ status: 429, data: {} }), zapier.errors.ThrottledError);
+  await assert.rejects(run({ status: 429, data: {} }), (error) => !(error instanceof zapier.errors.ThrottledError) && error.message.includes('manually retrying'));
   await assert.rejects(run({ status: 403, data: { error: { code: 'used_up', message: 'internal supplier details' } } }),
     (error) => error.message.includes('balance is insufficient') && !error.message.includes('supplier'));
   await assert.rejects(run({ status: 401, data: { error: { code: 'token_mismatched' } } }),
-    (error) => error.message.includes('cannot use Chat Completions') && !(error instanceof zapier.errors.ExpiredAuthError));
+    (error) => error.message.includes('cannot use the selected chat API') && !(error instanceof zapier.errors.ExpiredAuthError));
 });
 
 test('invalid inputs fail before a billable API request', async () => {

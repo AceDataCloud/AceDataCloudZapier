@@ -20,7 +20,7 @@ Save the token in Zapier's account connection. Keep it out of prompts, Zap names
 1. In the Zap editor, select the private AceDataCloud integration and **Create Chat Response**.
 2. Add a connection. Paste the raw token into **API token** and enter a short label such as `Work` in **Connection name**. The label identifies your connection and is not sent to AceDataCloud. Connecting checks the token without charging for a chat response.
 3. Choose **Model** from the current chat catalog. A model's presence in the picker does not guarantee access for your particular token.
-4. Enter or map **Prompt** from an earlier step. For example, map a short note and ask: `Summarize this note in one sentence: {{note}}`. Optional **System instructions** can request a tone or format. **Max completion tokens** limits output for models that support that parameter; it does not cap input length or total cost.
+4. Enter or map **Prompt** from an earlier step. For example, map a short note and ask: `Summarize this note in one sentence: {{note}}`. Optional **System instructions** can request a tone or format. Set **Max completion tokens** to limit output; some models require it before the action can run. This does not cap input length or total cost. The selected model uses its published Chat Completions, Messages, or Responses route.
 5. **Test** sends a real chat request and uses your AceDataCloud balance. Check the response text before proceeding. When the Zap is turned on, each triggered run also uses balance. A continuously scheduled trigger can incur repeated charges; turn it off after a one-run acceptance test.
 6. Map **Response text** to a later step, such as a field in a document or worksheet. **Response ID**, **Model**, **Finish reason**, token counts, and **Created at** are also available when returned by the model.
 
@@ -37,7 +37,7 @@ A rate limit asks Zapier to retry after a delay. A timeout or failed run can lea
 | What you see | What to check |
 | --- | --- |
 | Token cannot be verified / reconnect | Copy the complete raw token; check expiration, key usage limit, and application access. Update the connection after rotating a key. |
-| Token cannot use Chat Completions | Use a general application or a dedicated application/key that permits the selected chat service and operation. |
+| Token cannot use the selected chat API | Use a general application or a dedicated application/key that permits the selected chat service and operation. |
 | Insufficient balance | Check the application's balance and current package. |
 | Rejected request / unavailable model | Check the selected model and prompt; refresh the picker. If set, confirm that the model supports Max completion tokens. |
 | Rate limit | Let Zapier's delayed retry finish; review Zap History before manually replaying. |
