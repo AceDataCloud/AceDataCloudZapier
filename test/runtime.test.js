@@ -3,6 +3,8 @@ const { test, before, after, afterEach } = require('node:test');
 const nock = require('nock');
 const zapier = require('zapier-platform-core');
 const app = require('../index');
+const catalog = require('./fixtures/chat-protocols.json');
+const mockChatCatalog = () => nock('https://platform.acedata.cloud', { badheaders: ['authorization'] }).get('/api/v1/models/').query({ type: 'chat' }).reply(200, catalog);
 
 const bundle = {
   authData: { api_key: 'offline-test-token', connection_name: 'Private connection label' },
@@ -44,6 +46,7 @@ test('core loads only chat choices from the public catalog without sending the t
 });
 
 test('core serializes exactly one chat POST and exposes fields for the next Zap step', async () => {
+  mockChatCatalog();
   nock('https://api.acedata.cloud')
     .post('/v1/chat/completions', {
       model: 'gpt-5.5', stream: false,
@@ -75,6 +78,7 @@ test('core preserves custom auth, access, balance and moderation errors', async 
     [403, { error: { message: 'private upstream detail' } }, 'ChatRequestFailed'],
   ];
   for (const [status, data, code] of cases) {
+    mockChatCatalog();
     nock('https://api.acedata.cloud').post('/v1/chat/completions').reply(status, data);
     await assert.rejects(appTester(app.creates.send_chat.operation.perform, bundle), (error) => {
       if (code === 'ExpiredAuthError') {
@@ -91,15 +95,17 @@ test('core preserves custom auth, access, balance and moderation errors', async 
   }
 });
 
-test('core returns the safe throttle message with server delay or a 60-second fallback', async () => {
+test('core does not request replay of a rate-limited chat generation', async () => {
   for (const [header, expected] of [[undefined, 60], ['7', 7], ['invalid', 60], ['-1', 60]]) {
+    mockChatCatalog();
     nock('https://api.acedata.cloud').post('/v1/chat/completions')
       .reply(429, { error: { message: 'private upstream detail' } }, header ? { 'Retry-After': header } : {});
     await assert.rejects(appTester(app.creates.send_chat.operation.perform, bundle), (error) => {
-      assert.equal(error.name, 'ThrottledError');
+      assert.equal(error.name, 'AppError');
       const details = JSON.parse(error.message);
-      assert.equal(details.delay, expected);
-      assert.equal(details.message, 'AceDataCloud rate limit reached. Zapier will retry.');
+      assert.equal(details.delay, undefined);
+      assert.equal(details.code, 'GenerationRateLimited');
+      assert.equal(details.message, 'AceDataCloud rate limit reached. Check usage before manually retrying.');
       return true;
     });
   }
