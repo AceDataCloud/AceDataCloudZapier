@@ -123,6 +123,6 @@ All media generation 429 errors are normal `GenerationRateLimited` errors rather
 
 ## Native chat protocol release dependency
 
-The native chat update requires the public model `endpoints` metadata from [PlatformBackend #2382](https://github.com/AceDataCloud/PlatformBackend/pull/2382). Keep this consumer update in Draft until the backend is deployed and the actual public response includes those declarations. The103-model fixture is a candidate contract, not live verification. Missing or unsupported metadata stops the action before generation rather than guessing a protocol.
+The native chat update uses the public model `endpoints` metadata released in [PlatformBackend#2382](https://github.com/AceDataCloud/PlatformBackend/pull/2382). The actual public response was verified on2026-11-23 with103models and endpoint declarations on every row. Missing or unsupported metadata stops the action before generation rather than guessing a protocol. A publisher account is required for private upload; real Zap acceptance is additionally required before public publication.
 
 The text action preserves the selected model, routes system instructions and output limits to each protocol's fields, and maps native text/usage to existing Zap output fields. Messages requires an explicit output limit. Its input-token mapping includes uncached input and the separately reported cache read/write tokens. Finish reasons retain the chosen protocol's value. Generation429 is a normal error requiring review; it does not request Zapier's automatic throttle replay.

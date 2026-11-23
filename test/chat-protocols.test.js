@@ -35,7 +35,7 @@ const reply = (model, path, body) => {
   return { id: 'chat-result', model, choices: [{ message: { content: 'Done.' }, finish_reason: 'stop' }], usage: { prompt_tokens: 6, completion_tokens: 4, total_tokens: 10 } };
 };
 
-test('all103 candidate models use a declared protocol with one generation and no model substitution', async () => {
+test('all103 published models use a declared protocol with one generation and no model substitution', async () => {
   assert.equal(catalog.data.length, 103);
   mockCatalog();
   const choices = await tester(app.creates.send_chat.operation.inputFields[0].choices.perform, { authData, inputData: {} });
@@ -85,4 +85,16 @@ test('invalid native response bodies produce a safe error', async () => {
   mockCatalog();
   nock('https://api.acedata.cloud').post('/v1/messages').reply(200, { id: 'bad-shape', content: 'not-blocks', private: 'do-not-return' });
   await assert.rejects(tester(app.creates.send_chat.operation.perform, { authData, inputData: input('claude-sonnet-5-5') }), (error) => error.message.includes('returned no chat text') && !error.message.includes('do-not-return'));
+});
+
+test('native Responses refusals stay visible and failed responses cannot become successful text', async () => {
+  const original = catalog.data.find((row) => row.id === 'gpt-6.2-sol');
+  const row = { ...original, endpoints: original.endpoints.filter((item) => item.protocol === 'responses') };
+  mockCatalog({ data: [row] });
+  nock('https://api.acedata.cloud').post('/v1/responses').reply(200, { id: 'refusal-result', model: row.id, status: 'completed', output: [{ content: [{ type: 'refusal', refusal: 'I cannot help with that.' }] }] });
+  const result = await tester(app.creates.send_chat.operation.perform, { authData, inputData: input(row.id) });
+  assert.equal(result.content, 'I cannot help with that.');
+  mockCatalog({ data: [row] });
+  nock('https://api.acedata.cloud').post('/v1/responses').reply(200, { id: 'failed-result', status: 'failed', output_text: 'Partial text', error: { message: 'private detail' } });
+  await assert.rejects(tester(app.creates.send_chat.operation.perform, { authData, inputData: input(row.id) }), (error) => error.message.includes('unsuccessful response') && !error.message.includes('private detail'));
 });

@@ -83,6 +83,9 @@ const perform = async (z, bundle) => {
     throwApiError(z, response);
   }
   const data = response.data;
+  if (data?.error || data?.status === 'failed') {
+    throw new z.errors.Error('The selected model returned an unsuccessful response. Check usage before retrying.', 'ChatRequestFailed');
+  }
   const choice = data?.choices?.[0];
   let content;
   let finishReason;
@@ -95,7 +98,8 @@ const perform = async (z, bundle) => {
     usage = { prompt_tokens: Number.isSafeInteger(input) ? input + cache : undefined, completion_tokens: data?.usage?.output_tokens };
   } else if (protocol === 'responses') {
     content = data?.output_text || (Array.isArray(data?.output) ? data.output : []).flatMap((item) => Array.isArray(item?.content) ? item.content : [])
-      .filter((block) => block?.type === 'output_text' && typeof block.text === 'string').map((block) => block.text).join('');
+      .flatMap((block) => block?.type === 'output_text' && typeof block.text === 'string' ? [block.text]
+        : block?.type === 'refusal' && typeof block.refusal === 'string' ? [block.refusal] : []).join('');
     finishReason = data?.status;
     usage = { prompt_tokens: data?.usage?.input_tokens, completion_tokens: data?.usage?.output_tokens, total_tokens: data?.usage?.total_tokens };
   } else {
