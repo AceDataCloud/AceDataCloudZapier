@@ -31,7 +31,7 @@ All five media model selectors read the current published API catalog. If it can
 ## 2. Register / sign in and get the right API token
 
 1. Open [Ace Data Cloud → Applications](https://platform.acedata.cloud/console/applications?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen). Register or sign in first.
-2. Open **General application**. If missing, choose **Initialize General Application**. Its key can use the services available to your account; a dedicated application is limited to its service. Check Suno entitlement, current price and balance before any generation.
+2. Open **General application**. Its key can use the services available to your account; a dedicated application is limited to its service. Check Suno entitlement, current price and balance before any generation.
 3. Copy an existing key from the card, or open **Manage Keys → Create** and name a dedicated key `Zapier Suno`.
 
 ![Copy an API token or open Manage Keys — existing platform tutorial](assets/tutorial/get-api-key-en.png)

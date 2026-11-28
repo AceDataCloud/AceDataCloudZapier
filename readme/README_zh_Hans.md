@@ -13,7 +13,7 @@
 ## 2. 注册、登录并获取 Token
 
 1. 打开 [Ace Data Cloud → Applications](https://platform.acedata.cloud/console/applications?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen)，先注册或登录。
-2. 找到 **General application**；未创建时选 **Initialize General Application**。通用应用 Key 可调用账号已获权限的服务，专用应用则限对应服务。先确认 Suno 权限、当前价格和余额。
+2. 找到 **General application**。通用应用 Key 可调用账号已获权限的服务，专用应用则限对应服务。先确认 Suno 权限、当前价格和余额。
 3. 复制卡片上的 Key，或进入 **Manage Keys → Create**，单独命名 `Zapier Suno`，方便轮换和撤销。
 
 ![复制 Token 或打开管理页面，来自现有平台教程](../assets/tutorial/get-api-key-en.png)

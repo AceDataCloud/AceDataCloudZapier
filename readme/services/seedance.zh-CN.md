@@ -13,7 +13,7 @@
 ## 2. 获取正确的Token
 
 1. 打开[Applications](https://platform.acedata.cloud/console/applications?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen)，注册或登录。
-2. 找到 **General application**，没有时选 **Initialize General Application**。通用Key依账号服务权限，专用应用可能限服务。
+2. 找到 **General application**。通用Key依账号服务权限，专用应用可能限服务。
 3. 复制已有Token，或 **Manage Keys → Create**，取名 `Zapier Seedance`。复用截图中的 Dify tutorial 只是历史示例。
 4. 检查过期、用量和 **Allowed APIs**，同时允许 `/seedance/videos` 与 `/seedance/tasks`。模型列表连接成功不代表拥有生成/查询权限。
 
