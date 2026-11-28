@@ -13,7 +13,7 @@ Select **Ace Data Cloud → Generate Seedance Video**. Recover existing work wit
 ## 2. Register / sign in and create a scoped token
 
 1. Open [Ace Data Cloud Applications](https://platform.acedata.cloud/console/applications?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen); register or sign in.
-2. Find **General application**; if absent choose **Initialize General Application**. A general key uses your entitled services, while a dedicated application may be service-limited.
+2. Find **General application**. A general key uses your entitled services, while a dedicated application may be service-limited.
 3. Copy an existing API token or choose **Manage Keys → Create**. Name it `Zapier Seedance`; the reused screenshot's `Dify tutorial` is only a historical example.
 4. Review expiration, usage limit and **Allowed APIs**. Include both `/seedance/videos` and `/seedance/tasks`. A successful read-only model-list connection test does not prove those generation permissions.
 

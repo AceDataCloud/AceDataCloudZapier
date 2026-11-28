@@ -5,7 +5,7 @@ For Suno music generation and same-task recovery, follow the [Suno user guide](R
 ## Get an API token
 
 1. Open [AceDataCloud Applications](https://platform.acedata.cloud/console/applications?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen). Sign in or register first.
-2. Find **General application**. If it does not exist, choose **Initialize General Application**. A general application's key can use services available to your account. A dedicated application's key is limited to that service; make sure your application can access the model you plan to use.
+2. Find **General application**. A general application's key can use services available to your account. A dedicated application's key is limited to that service; make sure your application can access the model you plan to use.
 3. Open **Keys / Manage Keys → Create**, name the key `Zapier`, and review **Expiration Time**, **Set Usage Limitation**, and **Allowed APIs**. Allow the chat operation you will use. Copy only the API Key / API Token value, without quotes or a `Bearer ` prefix. A platform account-management token does not replace this API token.
 4. Check [current model pricing](https://platform.acedata.cloud/models?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen) and your application's balance. Any trial allowance is whatever your account currently displays.
 
